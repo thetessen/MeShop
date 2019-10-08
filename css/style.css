@@ -15,11 +15,14 @@ li {
 img {
     max-width: 100%;
 }
+.center {
+    text-align: center;
+}
 /* h3 {
     text-align: center;
 } */
 .container {
-    width: 1200px;
+    max-width: 1200px;
     margin: auto;
 }
 .flex-container {
@@ -201,6 +204,10 @@ img {
     cursor: pointer;
     width: 100%;
     font-size: 18px;
+    border-radius: 5px;
+}
+.content p>button {
+    margin-top: 25px;
 }
 .content button:hover {
     opacity: 0.7;
@@ -231,11 +238,38 @@ img {
     line-height: 40px;
 }
 .new-all {
-    float: right;
+    text-align: center;
     line-height: 40px;
+    padding: 15px;
+}
+.new-all a {
+    cursor: pointer;
+    display: inline-block;
+    width: 200px;
+    color: #272e79;
+    text-align: center; 
+    margin: 20px 0px;
+    padding: 2px 16px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+}
+.new-all a:hover {
+    color: white;
+    background-color: #272e79;
 }
 /*===================================PHẦN HIỂN THỊ TIÊU ĐỀ SẢN PHẨM MỚI===================*/
 /*====================================PHẦN CHÂN TRANG====================================*/
+.footer a{
+    color: #000;
+    display: inline-block;
+    margin: 5px 0;
+}
+.wap-footer {
+    margin: 25px 0px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
 /*====================================PHẦN CHÂN TRANG====================================*/
   /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 900px) {
