@@ -4,6 +4,7 @@
 ?>
     <!DOCTYPE html>
     <html>
+
     <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -73,13 +74,14 @@
                                             <h3>'.$sp["p_name"].'</h3>
                                             <p class="price">'.number_format($sp['p_gia'],0,'','.').'</p>
                                             <p>'.$sp["p_cauhinh"].'</p>
-                                            <p><button>Mua ngay</button></p>
+                                            <p><a href="details.php?p_id='.$sp["p_id"].'" class="me-btn">Xem chi tiết</a></p>
+
                                     </div>
                                    </div>
                                     ';
                                     if(++$i > 3) break;
                                 }
-                                
+
                             }
                             else {
                                 echo "Không có sản phẩm nào";
@@ -106,7 +108,7 @@
                         <?php
                             $sql_sp     =   "SELECT *FROM product WHERE p_group = 'hot'";
                             $result     =    $con->query($sql_sp);
- 
+
                             // kiểm tra số hàng trả về
                             if($result -> num_rows > 0) {
                                 $i = 0;
@@ -120,7 +122,7 @@
                                             <h3>'.$sp["p_name"].'</h3>
                                             <p class="price">'.number_format($sp['p_gia'],0,'','.').'</p>
                                             <p>'.$sp["p_cauhinh"].'</p>
-                                            <p><button>Mua ngay</button></p>
+                                            <p><a href="details.php?p_id='.$sp["p_id"].'" class="me-btn">Xem chi tiết</a></p>
                                     </div>
                                    </div>
                                     ';
@@ -150,4 +152,4 @@
                     <script src="owl carousel/owl.carousel.min.js"></script>
 
                     <script src="js/main.js"></script>
-</body>
+    </body>

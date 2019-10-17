@@ -4,6 +4,7 @@
 ?>
     <!DOCTYPE html>
     <html>
+
     <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -23,7 +24,7 @@
     <body>
         <!-- ----------PHần MENU----------------->
         <?php include_once 'php/navigation.php'; ?>
-        
+
             <!-- --------BẮT ĐẦU PHẦN MAIN    -->
             <div id="main">
                 <div class="container">
@@ -56,9 +57,9 @@
                     }
             ?>
 
-            <div class="row">
+                <div class="row">
 
-                <?php   
+                    <?php   
                         $sql_sp     = "";
                         $result     = "";
                         if(isset($_GET['p_loai']))
@@ -88,7 +89,7 @@
                                                 <h3>'.$sp["p_name"].'</h3>
                                                 <p class="price">'.number_format($sp['p_gia'],0,'','.').'</p>
                                                 <p>'.$sp["p_cauhinh"].'</p>
-                                                <p><button>Mua ngay</button></p>
+                                                <p><a href="details.php?p_id='.$sp["p_id"].'" class="me-btn">Xem chi tiết</a></p>
                                         </div>
                                     </div>
                                  ';
@@ -99,13 +100,9 @@
                         echo "Không có sản phẩm nào";
                     }
                 ?>
-        </div>
+                </div>
 
-
-
-
-
-            <div class="line"></div>
+                <div class="line"></div>
                 <!---------------------------------Phần footer------------------------->
                 <?php include_once 'php/footer.php'?>
 
@@ -117,4 +114,4 @@
                     <script src="owl carousel/owl.carousel.min.js"></script>
 
                     <script src="js/main.js"></script>
-</body>
+    </body>

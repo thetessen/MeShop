@@ -182,7 +182,9 @@ img {
     text-align: center;
     font-family: arial;
 }
-.content button {
+.content .me-btn {
+    text-decoration: none;
+    display: block;
     border: none;
     outline: 0;
     padding: 12px;
@@ -194,10 +196,10 @@ img {
     font-size: 18px;
     border-radius: 5px;
 }
-.content p>button {
+.content p>.me-btn {
     margin-top: 25px;
 }
-.content button:hover {
+.content .me-btn:hover {
     opacity: 0.7;
 }
 .price {

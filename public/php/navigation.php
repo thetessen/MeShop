@@ -3,7 +3,9 @@
         <div class="flex-container">
 
             <div class="logo">
-                <img src="logo.png">
+                <a href="index.php">
+                        <img src="logo.png">
+                </a>
             </div>
 
             <div class="search-container">
