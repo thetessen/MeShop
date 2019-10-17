@@ -303,6 +303,10 @@ img {
     border: 1px solid #ccc;
     border-top: none;
 }
+.tabcontent input {
+    border: none;
+    border-bottom: 1px solid red;
+}
 
 /*=================================== DINH DANG TAB ==========================*/
 
