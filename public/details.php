@@ -34,7 +34,7 @@
                             <div class="col-lg-4">
                                 <?php
                 if(isset($_GET['p_id'])) {
-                    $sql_sp     =   "SELECT *FROM product WHERE p_id = 6 ";
+                    $sql_sp     =   "SELECT *FROM product WHERE p_id = '".$_GET['p_id']."'";
                     $result     =    $con->query($sql_sp);
                     foreach($result as $sp) {
                         echo '
@@ -65,7 +65,7 @@
 
                                 <?php
                 if(isset($_GET['p_id'])) {
-                    $sql_sp     =   "SELECT *FROM product WHERE p_id = 6 ";
+                    $sql_sp     =   "SELECT *FROM product WHERE p_id = '".$_GET['p_id']."'";
                     $result     =    $con->query($sql_sp);
                     foreach($result as $sp) {
                         echo '

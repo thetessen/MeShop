@@ -37,26 +37,6 @@
                     </div>
                 </div>
             </div>
-
-            <?php
-                    $loai   =   "hot";
-                    if(isset($_GET['p_loai']))
-                    {
-                        if($_GET['p_loai'] == "new")
-                        {
-                            $title="SẢN PHẨM MỚI";
-                            $sql_sp     =   "SELECT *FROM product WHERE p_group = 'new'";
-                            $result     =    $con->query($sql_sp);
-                        }
-                        else
-                        {
-                            $title = "MUA NHIỀU NHẤT";                    
-                            $sql_sp     =   "SELECT *FROM product WHERE p_group = 'hot'";
-                            $result     =    $con->query($sql_sp);
-                        }
-                    }
-            ?>
-
                 <div class="row">
 
                     <?php   
@@ -64,16 +44,13 @@
                         $result     = "";
                         if(isset($_GET['p_loai']))
                         {
-                            if($_GET['p_loai'] == "new")
-                            {
-                                $title="SẢN PHẨM MỚI";
-                                $sql_sp     =   "SELECT *FROM product WHERE p_group = 'new'";
+                            if($_GET['p_loai'] == "new" OR $_GET['p_loai'] == "hot" ) {
+
+                                $sql_sp     =   "SELECT *FROM product WHERE p_group = '".$_GET['p_loai']."'";
                                 $result     =    $con->query($sql_sp);
                             }
-                            else
-                            {
-                                $title = "MUA NHIỀU NHẤT";                    
-                                $sql_sp     =   "SELECT *FROM product WHERE p_group = 'hot'";
+                            else {
+                                $sql_sp     =   "SELECT *FROM product WHERE p_id = '".$_GET['p_loai']."'";
                                 $result     =    $con->query($sql_sp);
                             }
                         }
