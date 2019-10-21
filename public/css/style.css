@@ -25,13 +25,27 @@ img {
     max-width: 1200px;
     margin: auto;
 }
+.container-header {
+    max-width: 1200px;
+    margin: auto;
+}
 .flex-container {
     display: flex;
     align-items: center;
 }
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+.ml-auto {
+    left: auto !important;
+    right: 0px;
+}
+
 /*===========================================ĐỊNH DẠNG HEADER=========================================*/
-#header-top {
-    padding: 10px;
+.header{
+    display: block;
     height: auto;
     background-color: #272e79;
     position: fixed;
@@ -40,25 +54,22 @@ img {
     z-index: 9999;
     width: 100%;
 }
-#header-top .logo img{
-    width: 120px;
-    height: 75px;
+.header .logo img {
+    width: 100px;
+    height: 100px;
 }
 /*===================================ĐỊNH DẠNG SEARCH========================================*/
-.search-container input[type=text]  {
-    /* padding: 6px;
-    font-size: 17px;
-    border: none;
-    margin-left: 40px; */
-    width: 250px;
+/* .search-container input[type=text]  {
+    margin: 15px 0px;
+    width: 800px;
     background: #fff;
     outline: none;
-    margin-left: 40px;
-    font-size: 17px;
+    font-size: 15px;
     padding: 10px;
     border: 0;
 }
 .search-container button {
+    margin: 15px 0px;
     float: right;
     padding: 10px 10px;
     background: #ddd;
@@ -66,17 +77,32 @@ img {
     border: none;
     cursor: pointer;
     outline: none;
+} */
+.search-container input[type=text]  {
+    margin: 15px 0px;
+    font-size: 20px;
+}
+.search-container button {
+    margin: 15px 0px;
+    font-size: 15px;
+}
+.cart {
+    margin-left: 50px;
+
+}
+.fa-shopping-cart {
+    margin: 13px 0px;
+}
+.fa-shopping-cart {
+    font-size: 38px;
 }
 /*===================================HẾT ĐỊNH DẠNG SEARCH========================================*/
 
 /*===================================ĐỊNH DẠNG MENU RIGHT===================================*/
 .navbar-me a {
-    text-align: center;
-    padding: 12px;
-    margin: 15px;
     color: white;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 17px; 
 }
 .navbar-me a:hover {
     background-color: #000;
@@ -88,7 +114,7 @@ img {
 
 /*============================================= CATAGORY START===========================================*/
 #main {
-    margin-top : 100px
+    margin-top : 179px;
 }
 #main .catago {
     width: 350px;
