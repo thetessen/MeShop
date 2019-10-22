@@ -8,6 +8,29 @@
     a {
         font-size: 14px;
     }
+    .button-badge {
+        text-decoration: none;
+        padding: 1rem 1.5rem;
+        position: relative;
+        border-radius: .2rem;
+        transition: all ease 0.4s;
+    }
+
+/* .button-badge:hover {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+} */
+
+    .badge {
+        position: absolute;
+        top: -11px;
+        right: -55px;
+        font-size: 1.2em;
+        background-color: white;
+        border-radius: 50%;
+    }
+
+
+
 </style>
 <div class="header">
     <div class="container-header">
@@ -74,8 +97,9 @@
                 </div>
             </div>
             <div class="col-sm-1">
-                <a href="#">
+                <a href="shoppingcart.php" class="button-badge">
                     <i class="fa fa-shopping-cart"></i>
+                    <span class="badge">0</span>
                 </a>
             </div>
         </div>
