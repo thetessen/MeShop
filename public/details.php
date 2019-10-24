@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    include('../database/sql.php');
+session_start();
+include('../database/sql.php');
 ?>
-    <!DOCTYPE html>
+   <!DOCTYPE html>
     <html>
 
     <head>
@@ -24,56 +24,59 @@
 
     <body>
         <!-- ----------PHần MENU----------------->
-        <?php include_once 'php/navigation.php'; ?>
+        <?php
+include_once 'php/navigation.php';
+?>
 
             <!-- --------BẮT ĐẦU PHẦN MAIN    -->
             <div id="main">
                 <div class="container">
-                    <?php include_once 'php/navigation.php'; ?>
-                        <div class="row">
+                    <?php
+include_once 'php/navigation.php';
+?>
+                       <div class="row">
                             <div class="col-lg-4">
                                 <?php
-                if(isset($_GET['p_id'])) {
-                    $sql_sp     =   "SELECT *FROM product WHERE p_id = '".$_GET['p_id']."'";
-                    $result     =    $con->query($sql_sp);
-                    foreach($result as $sp) {
-                        echo '
-                        <img src="image/'.$sp['p_img'].'">
+if (isset($_GET['p_id'])) {
+    $sql_sp = "SELECT *FROM product WHERE p_id = '" . $_GET['p_id'] . "'";
+    $result = $con->query($sql_sp);
+    foreach ($result as $sp) {
+        echo '
+                        <img src="image/' . $sp['p_img'] . '">
                         <div class="description">
                             <h2>Mô tả</h2>
                             THÔNG TIN CHI TIẾT SẢN PHẨM
                             <br>
-                            Tên máy : '.$sp['p_name'].'
+                            Tên máy : ' . $sp['p_name'] . '
                             <br>
-                            Cấu hình : '.$sp['p_cauhinh'].'
+                            Cấu hình : ' . $sp['p_cauhinh'] . '
                             <br>
-                            Bộ nhớ : '.$sp['p_ram'].'
+                            Bộ nhớ : ' . $sp['p_ram'] . '
                             <br>
-                            HDD : '.$sp['p_hdd'].'
+                            HDD : ' . $sp['p_hdd'] . '
                             <br>
-                            VAG : '.$sp['p_vga'].'
+                            VAG : ' . $sp['p_vga'] . '
                         </div>  
                     ';
-                    }
-                }
-                else {
-                    echo "no";
-                }
-        ?>
-                            </div>
+    }
+} else {
+    echo "no";
+}
+?>
+                           </div>
                             <div class="col-lg-8">
 
                                 <?php
-                if(isset($_GET['p_id'])) {
-                    $sql_sp     =   "SELECT *FROM product WHERE p_id = '".$_GET['p_id']."'";
-                    $result     =    $con->query($sql_sp);
-                    foreach($result as $sp) {
-                        echo '
+if (isset($_GET['p_id'])) {
+    $sql_sp = "SELECT *FROM product WHERE p_id = '" . $_GET['p_id'] . "'";
+    $result = $con->query($sql_sp);
+    foreach ($result as $sp) {
+        echo '
                         <h2 class="title">
-                        '.$sp['p_name'].' '.$sp['p_cauhinh'].' '.$sp['p_ram'].'
+                        ' . $sp['p_name'] . ' ' . $sp['p_cauhinh'] . ' ' . $sp['p_ram'] . '
                         </h2>
                             <div class="price">
-                                <p>Giá bán : '.number_format($sp['p_gia'],0,'','.').'</p>
+                                <p>Giá bán : ' . number_format($sp['p_gia'], 0, '', '.') . '</p>
                                 <p>
                                     Khuyến mãi: 
                                     Mua 1 tặng một balo
@@ -84,14 +87,13 @@
                                 </p>    
                              </div>
                     ';
-                    }
-                }
-                else {
-                    echo "no";
-                }
-        ?>
-
-                                    <div class="quantity" style="border-top: 2px solid red;">
+    }
+} else {
+    echo "no";
+}
+?>
+                                   <p style="margin-top: 25px">Chia sẻ sản phẩm</p>
+                                    <!-- <div class="quantity" style="border-top: 2px solid red;">
                                         <div class="input-group input-number-group">
                                             <div style="padding-top: 10px">
                                                 <div class="sl">
@@ -106,12 +108,19 @@
                                                 <span class="input-number-increment">+</span>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <button type="button" class="btn btn-danger">Mua Ngay</button>
-                                    <button type="button" class="btn btn-danger">Thêm Vào Giỏ Hàng</button>
-                                    <p style="margin-top: 25px">Chia sẻ sản phẩm</p>
-                            </div>
+                                    <?php
+if (isset($_GET['p_id'])) {
+    $url = 'addcart.php?p_id=' . $_GET['p_id'];
+    echo '
+                                            <a href="' . $url . '" class="btn btn-danger">Thêm Vào Giỏ Hàng</a>
+                                            ';
+}
+
+?>
+                           </div>
                         </div>
                 </div>
             </div>
@@ -127,41 +136,43 @@
                 <div class="container">
                     <div class="row">
                         <?php
-                            $sql_sp     =   "SELECT *FROM product WHERE p_group = 'new'";
-                            $result     =    $con->query($sql_sp);
-                            // kiểm tra số hàng trả về
-                            if($result -> num_rows > 0) {
-                                $i = 0;
-                                foreach($result as $sp) {
-                                    echo'
+$sql_sp = "SELECT *FROM product WHERE p_group = 'new'";
+$result = $con->query($sql_sp);
+// kiểm tra số hàng trả về
+if ($result->num_rows > 0) {
+    $i = 0;
+    foreach ($result as $sp) {
+        echo '
                                     <div class="column">
                                         <div class="content">
                                             <a href="#">
-                                                <img src="image/'.$sp["p_img"].'" style="width: 200px, height: 200px">
+                                                <img src="image/' . $sp["p_img"] . '" style="width: 200px, height: 200px">
                                             </a>
-                                            <h3>'.$sp["p_name"].'</h3>
-                                            <p class="price">'.number_format($sp['p_gia'],0,'','.').'</p>
-                                            <p>'.$sp["p_cauhinh"].'</p>
-                                            <p><a href="details.php?p_id='.$sp["p_id"].'" class="me-btn">Xem chi tiết</a></p>
+                                            <h3>' . $sp["p_name"] . '</h3>
+                                            <p class="price">' . number_format($sp['p_gia'], 0, '', '.') . '</p>
+                                            <p>' . $sp["p_cauhinh"] . '</p>
+                                            <p><a href="details.php?p_id=' . $sp["p_id"] . '" class="me-btn">Xem chi tiết</a></p>
                                     </div>
                                    </div>
                                     ';
-                                    if(++$i > 3) break;
-                                }
-
-                            }
-                            else {
-                                echo "Không có sản phẩm nào";
-                            }
-                ?>
-                    </div>
+        if (++$i > 3)
+            break;
+    }
+    
+} else {
+    echo "Không có sản phẩm nào";
+}
+?>
+                   </div>
 
                     <div class="new-all">
                         <p><a href="viewall.php?p_loai=new">Xem tất cả</a></p>
                     </div>
                     <div class="line"></div>
                     <!---------------------------------Phần footer------------------------->
-                    <?php include_once 'php/footer.php'?>
+                    <?php
+include_once 'php/footer.php';
+?>
 
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

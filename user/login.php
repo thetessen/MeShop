@@ -6,8 +6,8 @@
 
 		$err = [];
 
-		$id   = $_POST['txtusername'];
-    	$pass   = $_POST['txtpassword'];
+		$id  	 = $_POST['txtusername'];
+    	$pass    = $_POST['txtpassword'];
 
 		if(!isset($id))
 		{
@@ -38,8 +38,8 @@
 		            setcookie('pass', $pass, time() - 3600, '/', '', 0, 0);
 		        }
 
-		        $_SESSION['us'] =  $row['Name'];
-		        $_SESSION['us_id'] =  $row['id'];
+		        $_SESSION['us']		 =  $row['Name'];
+		        $_SESSION['us_id']   =  $row['id'];
 
 		        header('Location: ../public/index.php');
 			}else{

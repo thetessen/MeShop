@@ -1,10 +1,10 @@
 <?php
 //$con=mysql_connect('localhost','root','');
-    $servername = "localhost";
-    $username = "phi";
-    $password = "123";
-    $dbname = "myDB";
-    $domain         =        "/ShopWeb";
+    $servername     = "localhost";
+    $username       = "phi";
+    $password       = "123";
+    $dbname         = "myDB";
+    $domain         = "/MeShop";
     
     $con            =          mysqli_connect($servername, $username,$password);
 

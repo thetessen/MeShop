@@ -1,3 +1,4 @@
+//Tab đăng nhập đăng xuất
 function openCity(evt, name) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
