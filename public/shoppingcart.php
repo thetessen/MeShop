@@ -26,35 +26,41 @@
                   }
               }
             }
-    
-        
-    
 ?>
+
     <!DOCTYPE html>
     <html>
-
+    
     <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <title>Giỏ Hàng</title>
+        <title>MeShop</title>
         <link rel=icon href=logo.png sizes="16x16" type="image/png">
         <meta name='viewport' content='width=device-width, initial-scale=1'>
+
         <!---BS4-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <!--BS4-->
+
         <link rel="stylesheet" href="owl carousel/owl.carousel.min.css">
         <link rel="stylesheet" href="owl carousel/owl.theme.default.min.css">
         <!-- Load an icon library -->
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+        <link rel='stylesheet' type='text/css' media='screen' href='css/style1.css'>
         <link rel='stylesheet' type='text/css' media='screen' href='css/shoppingcart.css'>
     </head>
 
     <body>
-
-        <div id="main">
-            <?php include_once 'php/navigation.php'; ?>
-                <div class="container">
+        <?php include_once "php/navigation.php"?>
+        
+        <!-------------Phần danh mục và slider------------->
+        <br>
+        
+        <div class="container" style="margin-top: 7.4375rem;">
                     <h3>Sản Phẩm</h3>
                     <div class="shopping-cart">
 
@@ -110,23 +116,21 @@
                                         </div>
                                         <div class="product-line-price"><?php echo number_format($product['p_gia']*$product["quantity"],0,'','.')?></div>
                                     </div>
-                                    ';
-                                    
                             <?php
-                                                        $total_price += ($product["p_gia"]*$product["quantity"]);
+                                    $total_price += ($product["p_gia"]*$product["quantity"]);
                                 }
                             ?>
-                                <div class="totals-item totals-item-total">
-                                <label>Tổng Thanh Toán</label>
-                                <div class="totals-value" id="cart-total">
-                                    <?php if($total_price!=null){
-                                                echo $total_price;
-                                        }
-                                        else {
-                                            echo 0;
-                                        } ?>
+                                <div class="totals-item totals-item-total" style="float:right;">
+                                    <label>Tổng Thanh Toán</label>
+                                    <div class="totals-value" id="cart-total">
+                                        <?php if($total_price!=null){
+                                                    echo $total_price;
+                                            }
+                                            else {
+                                                echo 0;
+                                            } ?>
+                                    </div>
                                 </div>
-                            </div>
                             <?php
                             }
                             else {
@@ -134,22 +138,11 @@
                             }
                             ?>
                                        <div class="totals">
-                            <!-- <div class="totals-item">
-                                <label>Giá sản phẩm</label>
-                                <div class="totals-value" id="cart-subtotal">71.97</div>
-                            </div> -->
-                            <!-- <div class="totals-item">
-                                <label>Tax (5%)</label>
-                                <div class="totals-value" id="cart-tax">3.60</div>
-                            </div>
-                            <div class="totals-item">
-                                <label>Shipping</label>
-                                <div class="totals-value" id="cart-shipping">15.00</div>
-                            </div> -->
        
                         </div>
-
-                        <button class="checkout">Thanh Toán</button>
+                        <br>
+                        <br>
+                        <a href="order.php" class="checkout btn-block" style="text-decoration:none; text-align:center;">Thanh Toán</a>
 
                     </div>
 
@@ -157,63 +150,39 @@
                 </div>
 
         </div>
-        <div class="container">
-            <div class="new">
-                <div class="new-head">
-                    <h3 title="Sản phẩm mới ra mắt">SẢN PHẨM MỚI</h3>
-                </div>
-            </div>
-        </div>
-        <div class="product-new">
-            <div class="container">
-                <div class="row">
-                    <?php
-                            $sql_sp     =   "SELECT *FROM product WHERE p_group = 'new'";
-                            $result     =    $con->query($sql_sp);
-                            // kiểm tra số hàng trả về
-                            if($result -> num_rows > 0) {
-                                $i = 0;
-                                foreach($result as $sp) {
-                                    echo'
-                                    <div class="column">
-                                        <div class="content">
-                                            <a href="#">
-                                                <img src="image/'.$sp["p_img"].'" style="width: 200px, height: 200px">
-                                            </a>
-                                            <h3>'.$sp["p_name"].'</h3>
-                                            <p class="price">'.number_format($sp['p_gia'],0,'','.').'</p>
-                                            <p>'.$sp["p_cauhinh"].'</p>
-                                            <p><a href="details.php?p_id='.$sp["p_id"].'" class="me-btn">Xem chi tiết</a></p>
-                                    </div>
-                                   </div>
-                                    ';
-                                    if(++$i > 3) break;
-                                }
+        <br>
+            <?php include_once "php/productnew.php" ?>
+        <br>
+        <!---------------------FOOTER----------------------------------->
+        <div class="line"></div>
+        <br>
+        <?php include_once "php/footer.php" ?>
 
-                            }
-                            else {
-                                echo "Không có sản phẩm nào";
-                            }
-                ?>
-                </div>
-
-                <div class="new-all">
-                    <p><a href="viewall.php?p_loai=new">Xem tất cả</a></p>
-                </div>
-                <div class="line"></div>
-                <!---------------------------------Phần footer------------------------->
-                <?php include_once 'php/footer.php'?>
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
                     <script src="owl carousel/jquery-3.4.1.min.js"></script>
                     <script src="owl carousel/owl.carousel.min.js"></script>
-
+                    <script src="js/tab.js"></script>
                     <script src="js/shoppingcart.js"></script>
                     <script>
-                        < script src = "http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"
-                        charset = "utf-8" >
+                        $('.owl-carousel').owlCarousel({
+                                loop:true,
+                                margin:10,
+                                responsiveClass:true,
+                                responsive:{
+                                    0:{
+                                        items:1,
+                                        nav:true
+                                    },
+                                    600:{
+                                        items:1,
+                                        nav:false
+                                    },
+                                    1000:{
+                                        items:1,
+                                        nav:true,
+                                        loop:false
+                                    }
+                                }
+                            })
                     </script>
-
     </body>
