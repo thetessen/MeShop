@@ -43,6 +43,9 @@
 		case 'qlhd':
 			$controller->quanlyhoadon();
 			break;
+		case 'duyethd':
+			$controller->duyethoadon();
+			break;
 		default:
 			$controller->index();
 			break;

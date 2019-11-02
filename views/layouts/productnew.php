@@ -29,5 +29,5 @@
 </div>
 <br>
 <div class="new-all" style="text-align:center">
-    <p><a href="viewall.php?p_loai=hot" class="btn btn-danger">Xem tất cả</a></p>
+    <p><a href="danhmuc.php?id=4" class="btn btn-danger">Xem tất cả</a></p>
 </div>

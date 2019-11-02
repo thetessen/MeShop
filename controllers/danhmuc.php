@@ -13,7 +13,7 @@ class Controller
 		if(is_null($danhmuc)){
 			require_once('./views/error.php');
 		} else {
-			$listsanpham = $this->model->getsSanPhamByID($_GET['id']);
+			$listsanpham = $this->model->getsSanPhamByCata($_GET['id']);
 			if(is_null($listsanpham)){
 				$dulieutrong = true;
 			}

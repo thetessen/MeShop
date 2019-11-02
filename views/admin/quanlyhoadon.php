@@ -30,72 +30,9 @@
     </style>
 </head>
 <body>
-      <br>
+      
+      <?php include_once 'header.php'?>
 
-        <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2">
-                <div class="sidebar-sticky fixed-top px-1 col-2">
-                    <!-- <div class="px-1"> -->
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1  text-secondary">
-                      <span><i class="fa fa-home"></i> Quản lý</span>
-
-                    </h6>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link text-muted" data-toggle="collapse" href="#qldm" role="button" aria-expanded="false" aria-controls="qldm">
-                                <i class="fa fa-list-ol"></i> Danh mục
-                            </a>
-                        </li>
-                        <div class="collapse" id="qldm">
-                            <ul>
-                                <li><a href="quanly.php?task=qldm">Danh sách danh mục</a></li>
-                                <li><a href="quanly.php?task=tdm">Thêm danh mục</a></li>
-                            </ul>
-                        </div>
-                        <li class="nav-item">
-                            <a class="nav-link text-muted" data-toggle="collapse" href="#qlsp" role="button" aria-expanded="false" aria-controls="qlsp">
-                            <i class="fa fa-cart-plus"></i> Sản phẩm</a>
-                        </li>
-                        <div class="collapse" id="qlsp">
-                            <ul>
-                                <li><a href="quanly.php?task=qlsp">Danh sách sản phẩm</a></li>
-                                <li><a href="quanly.php?task=tsp">Thêm sản phẩm</a></li>
-                            </ul>
-                        </div>
-                        <li class="nav-item">
-                            <a class="nav-link text-muted" href="quanly.php?task=qltv">
-                                <i class="fa fa-users"></i> Người dùng
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-muted" href="quanly.php?task=qlhd">
-                                <i class="fa fa-clipboard"></i> Hóa đơn
-                            </a>
-                        </li>
-                    </ul>
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center mt-4 mb-1 text-success px-3">
-          <span><i class="fa fa-plus-circle"></i> Thiết lập</span>
-        </h6>
-                    <ul class="nav flex-column mb-2">
-                        <li class="nav-item">
-                            <a class="nav-link text-muted" href="#">
-                                <i class="fa fa-caret-right"></i> Website
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-10">
- <h6 class="sidebar-heading d-flex justify-content-between align-items-center mt-4 mb-2 text-success">
-  <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="quanly.php">Quản lý</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Danh sách hóa đơn</li>
-      </ol>
-    </nav>
-</h6>
-<!-- danh sach hoa don -->
 <div class="row">
     <div class="col-12">
         <table class="table table-hover table-bordered">
@@ -108,7 +45,6 @@
                     <th scope="col" class="align-middle text-center">Người đặt</th>
                     <th scope="col" class="align-middle text-center">Ngày đặt hàng</th>
                     <th scope="col" class="align-middle text-center">Tình trạng</th>
-                    <th scope="col" class="align-middle text-center">Tác vụ</th>
                 </tr>
             </thead>
             <tbody>
@@ -122,7 +58,7 @@
                         $mang_mausac = explode('|', $hd['listmausac']);
                         foreach($mang_sanpham as $key=>$sp){ ?>
                             <li style="list-style: square;">
-                                <a href="sanpham.php?id=<?php echo $sp ?>"><?php echo $this->model->getSanPham($sp)['ten'] ?></a> (<?php echo $mang_mausac[$key] ?>)
+                                <a href="sanpham.php?id=<?php echo $sp ?>"><?php echo $this->model->getSanPhamById($sp)['ten'] ?></a> (<?php echo $mang_mausac[$key] ?>)
                             </li>
                         <?php } ?>
                     </td>
@@ -144,13 +80,9 @@
                     <td class="align-middle">
                         <?php echo $hd['ngaygiaohang'] ?>
                     </td>
-                    <td class="align-middle">
-                        <?php if($hd['tinhtrang']==0) echo 'Chưa duyệt';if($hd['tinhtrang']==1) echo 'Đã duyệt';  ?>
-                    </td>
-                    <td class="align-middle">
-                        <a href="quanly.php?task=duyethd&id=<?php echo $hd['id_hoadon'] ?>" class="btn btn-warning">Duyệt đơn</a>
-                        <button class="btn btn-danger">Xóa</button>
-                    </td>
+                        <td class="align-middle">
+                            <a href="quanly.php?task=duyethd&id=<?php echo $hd['id_hoadon'] ?>" class="btn btn-warning">Duyệt đơn</a>
+                        </td>
                 </tr>
                 <?php } ?>
             </tbody>

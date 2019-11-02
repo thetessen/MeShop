@@ -140,9 +140,7 @@
                               echo '<b>'.print_r($_SESSION["giohang"]).'</b>';
                               echo '<a href="hoadon.php" class="checkout btn-block" style="text-decoration:none; text-align:center;">Mua Ngay</a>';
                         }
-                        else {
-                            echo '<b>HELLO</b>';
-                        }
+                       
                     ?>
             </div>
         <br><br>

@@ -107,13 +107,21 @@ class Model
 			return null;
 		}
 	}
-
+	
 	public function getThanhVien($tendangnhap, $matkhau){
 		$sql = "SELECT * FROM thanhvien WHERE tendangnhap='$tendangnhap' AND matkhau='$matkhau'";	
 		$result = $this->conn->query($sql);
 
 		if($result->num_rows > 0)
 			return $result->fetch_assoc();
+		return false;
+	}
+	public function getAllThanhVien(){
+		$sql = "SELECT * FROM thanhvien";	
+		$result = $this->conn->query($sql);
+
+		if($result->num_rows > 0)
+			return $result;
 		return false;
 	}
 
@@ -144,7 +152,7 @@ class Model
 	}
 
 	public function addDanhMuc($thongtin){
-		$sql = "INSERT INTO danhmuc (ten,mota,anhdaidien) VALUES ('".$thongtin['ten']."','".$thongtin['mota']."','".$thongtin['anhdaidien']."')";
+		$sql = "INSERT INTO danhmuc (id_danhmuc,ten,mota,anhdaidien) VALUES ('".$thongtin['id']."','".$thongtin['ten']."','".$thongtin['mota']."','".$thongtin['anhdaidien']."')";
 		$result = $this->conn->query($sql);
 		if($result) return true;
 		return false;
@@ -174,6 +182,7 @@ class Model
 		}
 	}
 
+
 	public function editDanhMuc($thongtin, $id){
 		$sql = "UPDATE danhmuc 
 				SET ten='".$thongtin['ten']."',mota='".$thongtin['mota']."',
@@ -185,6 +194,39 @@ class Model
 		return false;
 	}
 
+	public function xoaDanhMuc($id){
+		// sql to delete a record
+		$sql =  "DELETE FROM danhmuc WHERE id_danhmuc=$id";
+		if ($this->conn->query($sql) === TRUE) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public function xoaSanPhamByDanhMuc($id){
+		$sql = "DELETE FROM `sanpham` WHERE `sanpham`.`iddanhmuc` = $id";
+		if ($this->conn->query($sql) === TRUE) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public function xoaSanPhamByID($id){
+		$sql = "DELETE FROM `sanpham` WHERE `sanpham`.`id_sanpham` = $id";
+		if ($this->conn->query($sql) === TRUE) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public function duyetHoaDon($id){
+		$sql = "DELETE FROM `hoadon` WHERE `hoadon`.`id_hoadon` = $id";
+		if ($this->conn->query($sql) === TRUE) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	public function editSanPham($thongtin, $id){
 		$sql = "UPDATE sanpham SET 
 		ten='".$thongtin['ten']."',mota='".$thongtin['mota']."',

@@ -17,11 +17,9 @@ class Controller
 	}
 
 	public function dangnhap(){
-		$listdanhmuc = $this->model->getsDanhMuc();
-		$listsanpham = $this->model->getsSanPham();
-		if(!empty($_POST['tendangnhap'])&&!empty($_POST['matkhau'])){
+		if(!empty($_POST['tendangnhap']) && !empty($_POST['matkhau'])){
 			if($this->model->checkThanhVien($_POST['tendangnhap'],$_POST['matkhau'])){
-				$_SESSION['user_data'] = $this->model->getThanhVien($_POST['tendangnhap'],$_POST['matkhau']);
+				$_SESSION['user_data'] = $this->model->getThanhVien($_POST['tendangnhap'], $_POST['matkhau']);
 				header('location:index.php');
 			} else {
 				$error3 = true;
@@ -35,15 +33,12 @@ class Controller
 	}
 
 	public function dangky(){
-		$listdanhmuc = $this->model->getsDanhMuc();
-		$listsanpham = $this->model->getsSanPham();
-		// gán các trường lỗi vào biến
 		$tendangnhap_error = empty($_POST['tendangnhap']) ? 'true' : null;
-		$matkhau_error = empty($_POST['matkhau']) ? 'true' : null;
-		$hoten_error = empty($_POST['hoten']) ? 'true' : null;
-		$email_error = empty($_POST['email']) ? 'true' : null;
+		$matkhau_error 	   = empty($_POST['matkhau']) ? 'true' : null;
+		$hoten_error       = empty($_POST['hoten']) ? 'true' : null;
+		$email_error       = empty($_POST['email']) ? 'true' : null;
 		$sodienthoai_error = empty($_POST['sodienthoai']) ? 'true' : null;
-		$diachi_error = empty($_POST['diachi']) ? 'true' : null;
+		$diachi_error      = empty($_POST['diachi']) ? 'true' : null;
 		// check xem có trường nào lỗi không
 		if($tendangnhap_error||$matkhau_error||$hoten_error||$email_error||$sodienthoai_error||$diachi_error){
 			require_once('./views/user.php');
@@ -103,9 +98,26 @@ class Controller
 	}
 
 	public function xoadanhmuc(){
-
+		if(isset($_GET['id'])){
+			if($this->model->xoaDanhMuc($_GET['id']) && $this->model->xoaSanPhamByDanhMuc($_GET['id'])) {
+				header('Location: quanly.php?task=qldm');
+			}
+		}
+		else {
+			require_once('./views/admin/error.php');
+		}
 	}
-
+	public function duyethoadon(){
+		echo "he";
+		if(isset($_GET['id'])){
+			if($this->model->duyetHoaDon($_GET['id'])) {
+				header('Location: quanly.php?task=qlhd');
+			}
+		}
+		else {
+			require_once('./views/admin/error.php');
+		}
+	}
 	public function quanlysanpham(){
 		$listsanpham = $this->model->getsSanPham(50);
 		require_once('./views/admin/quanlysanpham.php');
@@ -160,9 +172,21 @@ class Controller
 			}
 		}
 		$listdanhmuc = $this->model->getsDanhMuc();
-		$sanpham = $this->model->getSanPham($_GET['id']);
+		$sanpham = $this->model->getSanPhamById($_GET['id']);
 		require_once('./views/admin/suasanpham.php');
 
+	}
+	public function xoasanpham(){
+		if(isset($_GET['id'])){
+			if($this->model->xoaSanPhamByID($_GET['id'])) {
+				$message = "Bạn đã xóa sản phẩm thành công!";
+				echo "<script type='text/javascript'>alert('$message');</script>";
+				header('Location: quanly.php?task=qlsp');
+			}
+		}
+		else {
+			require_once('./views/admin/error.php');
+		}
 	}
 
 	public function quanlyhoadon(){

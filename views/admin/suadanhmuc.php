@@ -30,10 +30,9 @@
     </style>
 </head>
 <body>
-<?php include_once 'header.php'?>
+ 
 
-<!-- thêm danh mục mới -->
-<div class="container" style="margin-left: 168px; margin-top: -19px">
+<?php include_once 'header.php'?>
 <div class="row">
     <div class="col-6 pb-2">
         <?php if(isset($ketqua)&&$ketqua){ ?>
@@ -42,28 +41,25 @@
         </div>
         <?php } elseif(isset($ketqua)&&!$ketqua) { ?>
           <div class="alert alert-danger" role="alert">
-            Thêm danh mục thất bại !
+            Thêm danh mục không thành công !
           </div>
         <?php } ?>
         <form method="POST">
-        <div class="form-group">
-            <label for="id">Id danh mục</label>
-            <input type="number" class="form-control" id="id" placeholder="điền id danh mục" name="id">
-          </div>
             <div class="form-group">
             <label for="ten">Tên danh mục</label>
-            <input type="text" class="form-control" id="ten" placeholder="điền tên danh mục" name="ten">
+            <input type="text" class="form-control" id="ten" placeholder="điền tên danh mục" name="ten" value="<?php echo $danhmuc['ten'] ?>">
+            <?php if(isset($error_ten)) echo '<div class="invalid-feedback">Tên đăng nhập là bắt buộc</div>';?>
           </div>
           <div class="form-group">
             <label for="mota">Mô tả</label>
-            <textarea name="mota" id="mota" cols="30" rows="10" class="form-control" placeholder="điền mô tả cho danh mục"></textarea>
+            <textarea name="mota" id="mota" cols="30" rows="10" class="form-control" placeholder="điền mô tả cho danh mục"><?php echo $danhmuc['mota'] ?></textarea>
           </div>
           <div class="form-group">
             <label for="anhdaidien">Ảnh đại diện</label>
-            <input type="text" class="form-control" placeholder="điền link ảnh" name="anhdaidien">
+            <input type="text" class="form-control" placeholder="điền link ảnh" name="anhdaidien" value="<?php echo $danhmuc['anhdaidien'] ?>">
           </div>
           <button type="submit" class="btn btn-primary">Thêm danh mục</button>
         </form>
     </div>
 </div>
-</div>
+
