@@ -93,7 +93,7 @@
                         </div>
                     <!--        GIÁ SP   -->
                         <div class="product-price">
-                            <?php echo $data['gia'] ?>
+                        <?php echo number_format( $data['gia'],0,'','.') ?>.000 VNĐ
                         </div>
                     <!--        SỐ LƯỢNG SP   -->
                         <div class="product-quantity">
@@ -123,7 +123,7 @@
                         <div class="product-line-price">
                             <?php 
                                 $tol_tal += $data['soluong'] * $data['gia'];
-                                echo $data['soluong'] * $data['gia'] 
+                                echo number_format( $data['soluong'] * $data['gia'],0,'','.'). ".000VNĐ";
                             ?>
                         </div>
 
@@ -137,7 +137,6 @@
                     </div>
                     <?php
                         if(!empty($_SESSION["giohang"])) {
-                              echo '<b>'.print_r($_SESSION["giohang"]).'</b>';
                               echo '<a href="hoadon.php" class="checkout btn-block" style="text-decoration:none; text-align:center;">Mua Ngay</a>';
                         }
                        

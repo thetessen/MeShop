@@ -108,8 +108,14 @@ class Model
 		}
 	}
 	
+	public function getSearch($name) {
+		$sql_sp=mysqli_query($this->conn,'select * from sanpham where ten LIKE "%'.$name.'%"');
+		return $sql_sp;
+	}
+
 	public function getThanhVien($tendangnhap, $matkhau){
-		$sql = "SELECT * FROM thanhvien WHERE tendangnhap='$tendangnhap' AND matkhau='$matkhau'";	
+		$pas = md5($matkhau);
+		$sql = "SELECT * FROM thanhvien WHERE tendangnhap='$tendangnhap' AND matkhau='$pas'";	
 		$result = $this->conn->query($sql);
 
 		if($result->num_rows > 0)
@@ -135,7 +141,8 @@ class Model
 	}
 
 	public function checkThanhVien($tendangnhap,$matkhau){
-		$sql = "SELECT * FROM thanhvien WHERE tendangnhap='$tendangnhap' AND matkhau='$matkhau'";	
+		$pas = md5($matkhau);
+		$sql = "SELECT * FROM thanhvien WHERE tendangnhap='$tendangnhap' AND matkhau='$pas'";		
 		$result = $this->conn->query($sql);
 
 		if($result->num_rows > 0)
@@ -144,7 +151,8 @@ class Model
 	}
 
 	public function addThanhVien($thongtin){
-		$sql = "INSERT INTO thanhvien (tendangnhap,matkhau,hoten,email,sodienthoai,diachi) VALUES ('".$thongtin['tendangnhap']."','".$thongtin['matkhau']."','".$thongtin['hoten']."','".$thongtin['email']."','".$thongtin['sodienthoai']."','".$thongtin['diachi']."')";
+		$pas = md5($thongtin['matkhau']);
+		$sql = "INSERT INTO thanhvien (tendangnhap,matkhau,hoten,email,sodienthoai,diachi) VALUES ('".$thongtin['tendangnhap']."','".$pas."','".$thongtin['hoten']."','".$thongtin['email']."','".$thongtin['sodienthoai']."','".$thongtin['diachi']."')";
 	
 		$result = $this->conn->query($sql);
 		if($result) return true;
@@ -241,6 +249,7 @@ class Model
 		if($result) return true;
 		return false;
 	}
+
 }
 
  ?>

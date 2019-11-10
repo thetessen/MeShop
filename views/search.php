@@ -8,11 +8,11 @@
             <div class="container">
                  <div class="row">
 
-                    <?php if(isset($dulieutrong)){
-                             echo '<h2 class="center">Danh mục chưa có sản phẩm nào !</h2>';
+                    <?php if(isset($listSanPham)){
+                             echo '<h2 class="center">Không tìm thấy sản phẩm nào !</h2>';
                            } else {
                     ?>
-                    <?php while($data = $listsanpham->fetch_assoc()){ ?>
+                    <?php while($data = $listSanPham->fetch_assoc()){ ?>
 
                         <div class="col-sm-3 box">
                             <a href="sanpham.php?id=<?php echo $data['id_sanpham'] ?>" class="product">

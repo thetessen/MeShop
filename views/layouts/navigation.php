@@ -54,14 +54,18 @@
                     </a>
                 </div>
                 <div class="col-sm-9 col-8 search-container">
+
+                <form action="search.php">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Nhập sản phẩm cần tìm..." id="mail" name="email">
+                        <input type="text" class="form-control" placeholder="Nhập sản phẩm cần tìm..." id="mail" name="name">
                             <div class="input-group-append">
                                 <button type="button" class="btn btn-primary">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </div>
                     </div>
+                </form>
+                
                 </div>
                 <div class="col-sm-1 col-2">
                     <a href="giohang.php" class="button-badge">

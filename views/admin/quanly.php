@@ -47,8 +47,8 @@
                                     <h5 class="card-title">Xem Danh Mục</h5>
                                     <p class="card-text">
                                         <ul>
-                                            <li><a href="#" class="text-white">Danh sách</a></li>
-                                            <li><a href="#" class="text-white">Thêm danh mục</a></li>
+                                            <li><a href="quanly.php?task=qldm" class="text-white">Danh sách</a></li>
+                                            <li><a href="quanly.php?task=tdm" class="text-white">Thêm danh mục</a></li>
                                         </ul>
                                     </p>
                                 </div>
@@ -63,8 +63,8 @@
                                     <h5 class="card-title">Xem Sản Phẩm</h5>
                                     <p class="card-text">
                                         <ul>
-                                            <li><a href="#" class="text-white">Danh sách</a></li>
-                                            <li><a href="#" class="text-white">Thêm sản phẩm</a></li>
+                                            <li><a href="quanly.php?task=qlsp" class="text-white">Danh sách</a></li>
+                                            <li><a href="quanly.php?task=tsp" class="text-white">Thêm sản phẩm</a></li>
                                         </ul>
                                     </p>
                                 </div>
@@ -79,7 +79,7 @@
                                     <h5 class="card-title">Xem Hóa Đơn</h5>
                                     <p class="card-text">
                                         <ul>
-                                            <li><a href="#" class="text-white">Danh sách</a></li>
+                                            <li><a href="quanly.php?task=qlhd" class="text-white">Danh sách</a></li>
                                         </ul>
                                     </p>
                                 </div>
@@ -94,7 +94,7 @@
                                     <h5 class="card-title">Xem Người Dùng</h5>
                                     <p class="card-text">
                                         <ul>
-                                            <li><a href="#" class="text-white">Danh sách</a></li>
+                                            <li><a href="quanly.php?task=qltv" class="text-white">Danh sách</a></li>
                                         </ul>
                                     </p>
                                 </div>

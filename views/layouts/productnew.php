@@ -18,7 +18,7 @@
 
                     <p><?php echo $data['ten'] ?></p>
 
-                    <p class="price"><?php echo $data['gia'] ?>.000 VNĐ</p>
+                    <p class="price"><?php echo number_format( $data['gia'],0,'','.') ?>.000 VNĐ</p>
 
                     <p><a href="sanpham.php?id=<?php echo $data['id_sanpham'] ?>" class="me-btn" style="color:white">Xem Ngay</a></p>
                 </a>
