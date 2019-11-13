@@ -17,7 +17,7 @@ class Model
 
 		$this->conn->set_charset("utf8");
 	}
-	// Lấy ra danh mục
+	// Lấy ra tên danh mục
 	public function getsDanhMuc(){
 		$sql = "SELECT * FROM danhmuc";
 		$result = $this->conn->query($sql);
@@ -41,7 +41,7 @@ class Model
 	}
 	// Lấy ra danh mục
 
-	// Lấy ra sản phẩm
+	// Lấy ra sản phẩm để hiển thị trên trang chủ
 	public function getsSanPham($limit = 4){
 		$sql = "SELECT * FROM sanpham ORDER BY RAND() LIMIT $limit";
 		$result = $this->conn->query($sql);
@@ -109,8 +109,9 @@ class Model
 	}
 	
 	public function getSearch($name) {
-		$sql_sp=mysqli_query($this->conn,'select * from sanpham where ten LIKE "%'.$name.'%"');
-		return $sql_sp;
+		$sql	 = "SELECT * FROM sanpham WHERE ten LIKE '%$name%'";
+		$result  =  $this->conn->query($sql);
+		return $result;
 	}
 
 	public function getThanhVien($tendangnhap, $matkhau){

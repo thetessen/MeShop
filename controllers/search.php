@@ -8,7 +8,8 @@ class Controller
 	}
 
 	public function index(){
-        $listSanPham = $this->model->getSearch($_GET["name"]);
+		$listSanPham = $this->model->getSearch($_GET["name"]);
+		//print_r($listSanPham->fetch_assoc());
 		require_once('./views/search.php');
 	}
 }
