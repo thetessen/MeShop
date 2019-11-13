@@ -7,7 +7,7 @@
    <div class="container">
       <div class="row">
          <?php 
-            if(!isset($listSanPham)){
+            if(!isset(!$listSanPham)){
                echo '<h2 class="center">Không tìm thấy sản phẩm nào !</h2>';
             } else { 
                while($data = $listSanPham->fetch_assoc()){
@@ -16,7 +16,7 @@
             <a href="sanpham.php?id=<?php echo $data['id_sanpham'] ?>" class="product">
                <img src= "<?php echo $data['anhdaidien'] ?>" class="img-responsive" style="width:100%" alt="Image">
                <p><?php echo $data['ten'] ?></p>
-               <p class="price"><?php echo $data['gia'] ?>000 VNĐ</p>
+               <?php echo  number_format( $data['gia'], 0, ',', '.'). ".000VNĐ" ?>
                <p>
             <a href="sanpham.php?id=<?php echo $data['id_sanpham'] ?>" class="me-btn" style="color:white">Xem Ngay</a></p>
             </a>
