@@ -132,7 +132,7 @@
                     <div class="totals-item totals-item-total" style="float:right;">
                         <label>Tổng Thanh Toán</label>
                         <div class="totals-value" id="cart-total">
-                            <?php if(!empty($_SESSION['giohang'])) echo $tol_tal ?>
+                            <?php if(!empty($_SESSION['giohang']))  echo number_format($tol_tal, 0, ',', '.'). ".000VNĐ" ?>
                         </div>
                     </div>
                     <?php
