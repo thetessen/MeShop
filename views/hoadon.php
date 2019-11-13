@@ -115,7 +115,7 @@
                <div class="row justify-content-between border-top py-2">
                   <div class="col-3 h6">Tổng cộng</div>
                   <div class="col-3 h6">
-                     <?php echo number_format( $_SESSION['giohang']['tongtien'],0,'','.')+30 ?>000 VND
+                     <?php echo number_format( $_SESSION['giohang']['tongtien']+30,0,'','.') .".000VNĐ" ?>
                   </div>
                </div>
             </div>
