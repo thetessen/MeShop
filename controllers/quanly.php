@@ -41,7 +41,7 @@ class Controller
 		$diachi_error      = empty($_POST['diachi']) ? 'true' : null;
 		// check xem có trường nào lỗi không
 		if($tendangnhap_error||$matkhau_error||$hoten_error||$email_error||$sodienthoai_error||$diachi_error){
-			require_once('./views/user.php');
+			require_once('./views/admin/user.php');
 		} else {
 			if($this->model->addThanhVien($_POST)){
 				header('location:index.php');
