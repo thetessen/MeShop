@@ -15,7 +15,7 @@
             <a href="sanpham.php?id=<?php echo $data['id_sanpham'] ?>" class="product">
                <img src= "<?php echo $data['anhdaidien'] ?>" class="img-responsive" style="width:100%" alt="Image">
                <p><?php echo $data['ten'] ?></p>
-               <p class="price"><?php echo number_format( $data['gia'],0,'','.') ?>000 VNĐ</p>
+               <p class="price"><?php echo number_format( $data['gia'],0,'','.').".000 VNĐ"?></p>
                <p>
             <a href="sanpham.php?id=<?php echo $data['id_sanpham'] ?>" class="me-btn" style="color:white">Xem Ngay</a></p>
             </a>
