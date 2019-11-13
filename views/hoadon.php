@@ -105,7 +105,7 @@
                         </p>
                     </div>
                     <div class="col-3">
-                        <?php echo $data['gia']*$data['soluong'] ?>
+                        <?php echo  number_format( $data['gia']*$data['soluong'], 0, ',', '.'). ".000VNĐ" ?>
                     </div>
                 </div>
             <?php }}} ?>
@@ -122,7 +122,7 @@
                     <div class="row justify-content-between border-top py-2">
                         <div class="col-3 h6">Tổng cộng</div>
                             <div class="col-3 h6">
-                        <?php echo number_format( $_SESSION['giohang']['tongtien'],0,'','.')+30 ?>000 VND</div>
+                        <?php echo number_format( $_SESSION['giohang']['tongtien']+30,0,'','.') ?>000 VND</div>
                     </div>
                 </div>
             </div>
