@@ -8,7 +8,7 @@
             <div class="container">
                  <div class="row">
 
-                    <?php if(isset($listSanPham)){
+                    <?php if(!isset($listSanPham)){
                              echo '<h2 class="center">Không tìm thấy sản phẩm nào !</h2>';
                            } else {
                     ?>
