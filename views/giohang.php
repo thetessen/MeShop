@@ -1,22 +1,4 @@
 <?php 
-   print_r($_SESSION["giohang"]) ;
-      if (isset($_POST['action']) && $_POST['action']=="remove"){
-   if(!empty($_SESSION["giohang"])) {
-       foreach($_SESSION["giohang"] as $key => $value) {
-           
-   
-               if($_POST["code"] == $value['ten']){
-                   unset($_SESSION["giohang"][$key]);
-                   $status = "<div class='box' style='color:red;'>
-                   Product is removed from your cart!</div>";
-           }
-           if(empty($_SESSION["giohang"]))   
-                   unset($_SESSION["giohang"]);
-               }		
-           }
-       }
-   
-   
        if (isset($_POST['action']) && $_POST['action']=="change"){
            foreach($_SESSION["giohang"] as &$value){
              if($value['ten'] === $_POST["code"]){
@@ -104,15 +86,7 @@
                   </form>
                </div>
                <!-- XÓa sản phẩm-->
-               <div class="product-removal">
-                  <form method="post" action="">
-                     <input type="hidden" name="code" value="<?php echo $data['ten']?>" />
-                     <input type="hidden" name="action" value="remove" />
-                     <button type="submit" class="remove-product">
-                     Xóa Sản Phẩm
-                     </button>
-                  </form>
-               </div>
+ <button name="delete" class="btn btn-danger btn-xs delete" code="<?php echo $data['ten']?>">Xóa</button>
                <!--- GIÁ TIỀN SẢN PHẨM ---->
                <div class="product-line-price">
                   <?php 
@@ -143,4 +117,31 @@
       <?php include_once "./views/layouts/footer.php" ?>
       <script src="js/tab.js"></script>
       <script src="js/shoppingcart.js"></script>
+        <script>
+
+               
+               $(document).on('click', '.delete', function(){
+                  var action = 'remove';
+                  var code = $(this).attr("code");
+                  console.log(code);
+                  if(confirm("Bạn có chắc muốn xóa sản phẩm?"))
+                  {
+                     $.ajax({
+                        url:"action.php",
+                        method:"POST",
+                        data:{code:code, action:action},
+                        success:function()
+                        {
+                           
+                           alert("Item has been removed from Cart");
+                           $('body').load('giohang.php');
+                        }
+                     })
+                  }
+                  else
+                  {
+                     return false;
+                  }
+              });
+      </script>
    </body>
