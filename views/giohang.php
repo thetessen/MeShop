@@ -130,6 +130,7 @@
             </div>
             <?php
                if(!empty($_SESSION["giohang"])) {
+                   if ($tol_tal > 0 )
                      echo '<a href="hoadon.php" class="checkout btn-block" style="text-decoration:none; text-align:center;">Mua Ngay</a>';
                }
             ?>
