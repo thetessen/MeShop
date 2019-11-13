@@ -7,7 +7,7 @@
    <div class="container">
       <div class="row">
          <?php 
-            if(!isset(!$listSanPham)){
+            if(!isset($listSanPham)){
                echo '<h2 class="center">Không tìm thấy sản phẩm nào !</h2>';
             } else { 
                while($data = $listSanPham->fetch_assoc()){
