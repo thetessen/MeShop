@@ -105,7 +105,7 @@
                         </p>
                     </div>
                     <div class="col-3">
-                        <?php echo $data['gia']*$data['soluong'] ?>
+                          <?php echo  number_format( $data['gia']*$data['soluong'], 0, ',', '.'). ".000VNĐ" ?>
                     </div>
                 </div>
             <?php }}} ?>
