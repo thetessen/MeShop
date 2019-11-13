@@ -73,6 +73,7 @@
             <div class="col-md-6 border-left">
                <!-- don hang -->
                <?php 
+                   $tol_tal = 0;
                   if(empty($_SESSION['giohang'])){
                         echo '<h1 class="h5">Chưa có sản phẩm nào trong giỏ !</h1>';
                   } else { 
@@ -97,7 +98,9 @@
                      </p>
                   </div>
                   <div class="col-3">
-                     <?php echo $data['gia']*$data['soluong'] ?>
+                     <?php 
+                     $tol_tal += $data['soluong'] * $data['gia'];
+                      echo number_format( $data['soluong'] * $data['gia'],0,'','.'). ".000VNĐ"; ?>
                   </div>
                </div>
                <?php }}} ?>
@@ -105,7 +108,7 @@
                <div class="row justify-content-between py-2">
                   <div class="col-3">Tạm tính</div>
                   <div class="col-3">
-                     <?php echo number_format( $_SESSION['giohang']['tongtien'],0,'','.').".000VNĐ" ?>
+                      <?php echo number_format( $tol_tal,0,'','.').".000VNĐ" ?>
                   </div>
                </div>
                <div class="row justify-content-between py-2">
@@ -115,7 +118,7 @@
                <div class="row justify-content-between border-top py-2">
                   <div class="col-3 h6">Tổng cộng</div>
                   <div class="col-3 h6">
-                     <?php echo number_format( $_SESSION['giohang']['tongtien']+30,0,'','.') .".000VNĐ" ?>
+                      <?php echo number_format( $tol_tal+30,0,'','.').".000VNĐ" ?>
                   </div>
                </div>
             </div>
