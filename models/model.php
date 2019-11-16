@@ -250,6 +250,9 @@ class Model
 		if($result) return true;
 		return false;
 	}
+	public function gettempSearch($name) {		
+		return $name;
+	}
 
 }
 
