@@ -53,7 +53,7 @@ class Model
 		}
 	}
 
-	public function getsSanPhamByCata($id, $limit = 4){
+	public function getsSanPhamByCata($id, $limit = 50){
 		$sql = "SELECT * FROM sanpham WHERE iddanhmuc = $id ORDER BY id_sanpham DESC LIMIT $limit";
 		$result = $this->conn->query($sql);
 
