@@ -9,7 +9,7 @@ class Controller
 
 	public function index(){
 		$listdanhmuc 	= $this->model->getsDanhMuc();
-		$danhmuc 		= $this->model->getDanhMuc($_GET['id']);
+		$danhmuc 		= $_GET['id'];
 		if(is_null($danhmuc)){
 			require_once('./views/error.php');
 		} else {
