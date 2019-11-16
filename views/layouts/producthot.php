@@ -25,5 +25,5 @@
 </div>
 <br>
 <div class="new-all" style="text-align:center">
-   <p><a href="danhmuc.php?id=2" class="btn btn-danger">Xem tất cả</a></p>
+   <p><a href="danhmuc.php?id=6" class="btn btn-danger">Xem tất cả</a></p>
 </div>
