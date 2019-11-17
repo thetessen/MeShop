@@ -9,6 +9,7 @@
                 border: 1px solid #ccc;
                 padding: 5px 9px;
                 color: #000;
+                border-radius: 7px
             }
             .current-page{
                 background: red;
