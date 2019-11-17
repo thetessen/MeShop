@@ -105,7 +105,8 @@
                </div>
                <?php }}} ?>
                <!-- end don hang -->
-               <div class="row justify-content-between py-2">
+               <?php if($tol_tal > 0){ ?>
+                  <div class="row justify-content-between py-2">
                   <div class="col-3">Tạm tính</div>
                   <div class="col-3">
                       <?php echo number_format( $tol_tal,0,'','.').".000VNĐ" ?>
@@ -121,6 +122,7 @@
                       <?php echo number_format( $tol_tal+30,0,'','.').".000VNĐ" ?>
                   </div>
                </div>
+            <?php   }   ?>
             </div>
          </div>
          <br>
