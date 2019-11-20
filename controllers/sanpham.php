@@ -39,7 +39,8 @@ class Controller
 					'ten'     => $sanpham['ten'],
 					'mausac'  => $_POST['mausac'],
 					'soluong' => $_POST['soluong'],
-					'gia'     => $_POST['soluong'] * $sanpham['gia'],
+					'gia'     => $_POST['soluong'] * $sanpham['gia'] ,
+					'giaSanPham'=> $sanpham['gia']
 				)
 			);
         // Thêm vào giỏ hàng
@@ -65,7 +66,7 @@ class Controller
 				$_SESSION['giohang']['tongtien']  += $hoadonsp[$_POST['id']]['gia'];
 			}
 
-			header('location:giohang.php');
+			header('location:sanpham.php?id='.$sanpham['id_sanpham']);
 		}
 	}
 }

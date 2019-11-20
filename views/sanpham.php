@@ -80,7 +80,7 @@
                </div>
                <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-dismiss="modal">Trở lại</button>
-               <button type="submit" class="btn btn-primary">Đăng nhập</button>
+               <button type="submit" name="sanpham"  value="<?php echo $sanpham['id_sanpham'] ?>" class="btn btn-primary">Đăng nhập</button>
                </div>
                </div>
                </form>

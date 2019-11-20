@@ -20,7 +20,12 @@ class Controller
 		if(!empty($_POST['tendangnhap']) && !empty($_POST['matkhau'])){
 			if($this->model->checkThanhVien($_POST['tendangnhap'],$_POST['matkhau'])){
 				$_SESSION['user_data'] = $this->model->getThanhVien($_POST['tendangnhap'], $_POST['matkhau']);
-				header('location:index.php');
+				if(isset($_POST[sanpham])) {
+					header('location:sanpham.php?id='.$_POST[sanpham]);
+				}
+				else {
+					header('location:index.php');
+				}
 			} else {
 				$error3 = true;
 				require_once('./views/admin/user.php');
@@ -39,6 +44,7 @@ class Controller
 		$email_error       = empty($_POST['email']) ? 'true' : null;
 		$sodienthoai_error = empty($_POST['sodienthoai']) ? 'true' : null;
 		$diachi_error      = empty($_POST['diachi']) ? 'true' : null;
+
 		// check xem có trường nào lỗi không
 		if($tendangnhap_error||$matkhau_error||$hoten_error||$email_error||$sodienthoai_error||$diachi_error){
 			require_once('./views/admin/user.php');

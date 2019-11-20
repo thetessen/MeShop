@@ -38,7 +38,7 @@
                <label class="product-details">Product</label>
                <label class="product-price">Giá</label>
                <label class="product-quantity">Số Lượng</label>
-               <label class="product-removal">Xóa sản phẩm</label>
+               <label class="product-removal">Xóa</label>
                <label class="product-line-price">Tổng</label>
             </div>
             <?php 
@@ -69,7 +69,7 @@
                </div>
                <!--        GIÁ SP   -->
                <div class="product-price">
-                  <?php echo number_format( $data['gia'],0,'','.') ?>.000 VNĐ
+                  <?php echo number_format( $data['giaSanPham'],0,'','.') ?>.000 VNĐ
                </div>
                <!--        SỐ LƯỢNG SP   -->
                <div class="product-quantity">
@@ -86,12 +86,14 @@
                   </form>
                </div>
                <!-- XÓa sản phẩm-->
- <button name="delete" class="btn btn-danger btn-xs delete" code="<?php echo $data['ten']?>">Xóa</button>
+               <div class="product-removal">
+                   <button name="delete" class="btn btn-danger delete" code="<?php echo $data['ten']?>">Xóa</button>
+               </div>
                <!--- GIÁ TIỀN SẢN PHẨM ---->
                <div class="product-line-price">
                   <?php 
-                     $tol_tal += $data['soluong'] * $data['gia'];
-                     echo number_format( $data['soluong'] * $data['gia'],0,'','.'). ".000VNĐ";
+                     $tol_tal += $data['soluong'] * $data['giaSanPham'];
+                     echo number_format( $data['soluong'] * $data['giaSanPham'],0,'','.'). ".000VNĐ";
                      ?>
                </div>
             </div>
@@ -133,7 +135,7 @@
                         success:function()
                         {
                            
-                           alert("Item has been removed from Cart");
+                           alert("Sản phẩm đã bị xóa khỏi giỏ hàng");
                            $('body').load('giohang.php');
                         }
                      })
