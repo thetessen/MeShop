@@ -16,6 +16,9 @@
 		case 'dangxuat':
 			$controller->dangxuat();
 			break;
+		case 'dangxuatadmin':
+			$controller->dangxuatadmin();
+			break;
 		case 'qldm':
 			$controller->quanlydanhmuc();
 			break;
@@ -49,6 +52,6 @@
 		default:
 			$controller->index();
 			break;
-	}
+	} 
 
  ?>
