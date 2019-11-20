@@ -69,7 +69,7 @@
                </div>
                <!--        GIÁ SP   -->
                <div class="product-price">
-                  <?php echo number_format( $data['giaSanPham'],0,'','.') ?>.000 VNĐ
+                  <?php echo number_format( $data['gia'],0,'','.') ?>.000 VNĐ
                </div>
                <!--        SỐ LƯỢNG SP   -->
                <div class="product-quantity">
@@ -92,8 +92,8 @@
                <!--- GIÁ TIỀN SẢN PHẨM ---->
                <div class="product-line-price">
                   <?php 
-                     $tol_tal += $data['soluong'] * $data['giaSanPham'];
-                     echo number_format( $data['soluong'] * $data['giaSanPham'],0,'','.'). ".000VNĐ";
+                     $tol_tal += $data['soluong'] * $data['gia'];
+                     echo number_format( $data['soluong'] * $data['gia'],0,'','.'). ".000VNĐ";
                      ?>
                </div>
             </div>
