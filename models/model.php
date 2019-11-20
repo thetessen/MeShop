@@ -53,6 +53,7 @@ class Model
 		}
 	}
 
+
 	public function getsSanPhamByCata($id, $limit = 50){
 		$sql = "SELECT * FROM sanpham WHERE iddanhmuc = $id ORDER BY id_sanpham DESC LIMIT $limit";
 		$result = $this->conn->query($sql);
@@ -252,6 +253,12 @@ class Model
 	}
 	public function gettempSearch($name) {		
 		return $name;
+	}
+	public function checkThanhVienAdmin($tendangnhap,$matkhau){
+		if($tendangnhap == "admin" && $matkhau == "admin")
+			return true;
+		return false;
+	
 	}
 
 }
