@@ -27,6 +27,26 @@
    <br>
    <?php include_once "./views/layouts/producthot.php" ?>
    <br>
+   <div class="container">
+   <div class="row">
+     
+      <div class="col-sm-4 box">
+         <a target="_blank" href="https://phongvu.vn/thuong-hieu-dien-thoai-915.cat?brands=TH000005,TH000003,TH000335&pv_source=website&pv_campaign=promo-1384&pv_medium=hp-de-hotdeal-390x190_order%3D3003_v%3D">
+            <img src="https://img1.phongvu.vn/media/banner/pv-banner-390x190-2f883.jpg">
+         </a>
+      </div>
+      <div class="col-sm-4 box">
+         <a target="_blank"  href="https://phongvu.vn/promo/clearance?pv_source=website&pv_campaign=promo-1441&pv_medium=hp-de-hotdeal-390x190_order%3D1600_v%3D">
+            <img src="https://img1.phongvu.vn/media/banner/pv-banner-390x190-6f481.jpg">
+         </a>
+      </div>
+      <div class="col-sm-4 box">
+         <a target="_blank"  href="https://phongvu.vn/laptop-2371.cat?pv_source=website&pv_campaign=promo-1450&pv_medium=hp-de-hotdeal-390x190_order%3D_v%3D">
+         <img src="https://img1.phongvu.vn/media/banner/pv-banner-390x190-3e24c.jpg">
+         </a>
+      </div>
+   </div>
+</div>
    <?php include_once "./views/layouts/productnew.php" ?>
    <!---------------------FOOTER----------------------------------->
    <div class="line"></div>
