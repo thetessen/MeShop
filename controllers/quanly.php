@@ -7,7 +7,7 @@ class Controller
 		require_once('./models/model.php');
 		$this->model = new Model();
 	}
-
+ 
 	public function index(){
 		require_once('./views/admin/quanly.php');
 	}
@@ -20,12 +20,7 @@ class Controller
 		if(!empty($_POST['tendangnhap']) && !empty($_POST['matkhau'])){
 			if($this->model->checkThanhVien($_POST['tendangnhap'],$_POST['matkhau'])){
 				$_SESSION['user_data'] = $this->model->getThanhVien($_POST['tendangnhap'], $_POST['matkhau']);
-				if(isset($_POST[sanpham])) {
-					header('location:sanpham.php?id='.$_POST[sanpham]);
-				}
-				else {
-					header('location:index.php');
-				}
+				header('location:index.php');
 			} else {
 				$error3 = true;
 				require_once('./views/admin/user.php');
@@ -44,7 +39,6 @@ class Controller
 		$email_error       = empty($_POST['email']) ? 'true' : null;
 		$sodienthoai_error = empty($_POST['sodienthoai']) ? 'true' : null;
 		$diachi_error      = empty($_POST['diachi']) ? 'true' : null;
-
 		// check xem có trường nào lỗi không
 		if($tendangnhap_error||$matkhau_error||$hoten_error||$email_error||$sodienthoai_error||$diachi_error){
 			require_once('./views/admin/user.php');
@@ -63,6 +57,11 @@ class Controller
 		unset($_SESSION['user_data']);
 		unset($_SESSION['giohang']);
 		header('location:index.php');
+	}
+
+	public function dangxuatadmin(){
+		unset($_SESSION['admin_data']);
+		header('location:loginadmin.php');
 	}
 
 	public function quanlydanhmuc(){
