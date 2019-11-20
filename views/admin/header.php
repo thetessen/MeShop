@@ -5,6 +5,8 @@
       <title>MeShop</title>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+      <link rel="stylesheet" type="text/css" media="screen" href="public/css/style1.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel=icon href=logo.png sizes="16x16" type="image/png">
       <style>
          body {
@@ -27,13 +29,20 @@
          -webkit-transform: rotate(15deg);
          transform: rotate(15deg);
          }
+         
       </style>
    </head>
    <body>
       <nav class="navbar navbar-light bg-white shadow-sm fixed-top" style="background: #272e79 !important;">
          <a class="navbar-brand" href="quanly.php">
          <img src="./logo.png" alt="logo" style="width:40px;">
-         </a>
+         </a>     
+         <div class="wrapper">
+            <div class="item7">
+               <a href="quanly.php?task=dangxuatadmin" class="nav-me" style="color : white;text-decoration: none; font-size:115%";>
+                  <i class="fa fa-sign-out"></i>Đăng xuất
+               </a>
+         </div>    
       </nav>
       <!-- main -->
       <div class="container-fluid">
